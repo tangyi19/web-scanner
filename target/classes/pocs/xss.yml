@@ -1,0 +1,9 @@
+name: xss-pikachu
+type: XSS
+rules:
+  - method: GET
+    path: vul/xss/xss_01.php?message=<scrIPt>alert(1)<%2FscrIpt>&submit=submit
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+    expression: result.contains("<scrIPt>alert(1)</scrIpt>")
+author: cjmoyu

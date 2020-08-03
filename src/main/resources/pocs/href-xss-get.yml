@@ -1,0 +1,9 @@
+name: href-xss-get
+type: XSS
+rules:
+  - method: GET
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+    path: vul/xss/xss_03.php?message=javascript%3Aalert(href-xss)&submit=submit
+    expression: result.contains("href-xss")
+author: ty

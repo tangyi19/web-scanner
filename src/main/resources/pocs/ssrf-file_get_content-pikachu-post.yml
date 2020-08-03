@@ -1,0 +1,11 @@
+name: ssrf-file_get_content-pikachu-post
+type: SSRF
+rules:
+  - method: POST
+    headers:
+      User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:75.0) Gecko/20100101
+      Content-type: application/x-www-form-urlencoded
+    path: vul/ssrf/ssrf_fgc.php?file=php://input
+    body: ch4serishere
+    expression: result.contains("ch4serishere")
+author: ch4ser
